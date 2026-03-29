@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Kip&Kin · Book Direct · No Fees</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  /* Kip&Kin palette — muted, refined */
+  --ink:       #0e0c08;
+  --deep:      #1a1710;
+  --card:      #211e16;
+  --card2:     #2a261c;
+  --panel:     #302c20;
+  --border:    rgba(168,148,108,0.15);
+  --border2:   rgba(168,148,108,0.28);
+
+  --cream:     #e2d8c0;
+  --cream-dim: #a89e88;
+  --cream-off: #6a6050;
+
+  --olive:     #566830;
+  --olive-lt:  #748a42;
+  --tunis:     #9e5030;
+  --tunis-lt:  #bc6238;
+  --gold:      #aa8c18;
+  --gold-lt:   #caa81a;
+  --blush:     #aa8880;
+  --sage:      #82906a;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--deep);
+  color:var(--cream);
+  font-family:'Raleway',sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── subtle paper texture ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  opacity:.55;
+}
+
+/* ══════════════════════════════
+   BRAND HEADER
+══════════════════════════════ */
+.brand-header{
+  position:relative;
+  background:var(--ink);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+  padding:44px 24px 36px;
+  text-align:center;
+}
+
+/* geometric corner lines */
+.brand-header::before{
+  content:'';position:absolute;top:0;left:0;
+  width:80px;height:80px;
+  border-right:1px solid var(--border2);
+  border-bottom:1px solid var(--border2);
+}
+.brand-header::after{
+  content:'';position:absolute;bottom:0;right:0;
+  width:80px;height:80px;
+  border-left:1px solid var(--border2);
+  border-top:1px solid var(--border2);
+}
+
+.header-sup{
+  font-family:'DM Mono',monospace;
+  font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--cream-dim);margin-bottom:14px;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.header-sup::before,.header-sup::after{content:'';width:28px;height:1px;background:var(--border2);}
+
+.brand-name{
+  font-family:'Cinzel',serif;
+  font-size:clamp(2.8rem,10vw,4.2rem);
+  font-weight:700;
+  color:var(--cream);
+  letter-spacing:.08em;
+  line-height:1;
+  margin-bottom:6px;
+}
+
+.brand-amp{color:var(--gold-lt);}
+
+.brand-tagline{
+  font-family:'Raleway',sans-serif;
+  font-size:.6rem;font-weight:500;
+  letter-spacing:.55em;text-transform:uppercase;
+  color:var(--blush);opacity:.75;
+  margin-bottom:20px;
+}
+
+/* no-fees ribbon */
+.ribbon{
+  display:inline-flex;
+  border:1px solid var(--border2);
+  overflow:hidden;
+  margin-top:4px;
+}
+.ribbon-seg{
+  font-family:'DM Mono',monospace;
+  font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;
+  padding:6px 14px;color:var(--gold-lt);
+  border-right:1px solid var(--border2);
+}
+.ribbon-seg:last-child{border-right:none;}
+
+/* location tag */
+.loc-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:14px;
+  font-family:'DM Mono',monospace;
+  font-size:.5rem;letter-spacing:.18em;
+  color:var(--cream-dim);text-transform:uppercase;
+}
+.loc-dot{width:5px;height:5px;border-radius:50%;background:var(--tunis-lt);}
+
+/* ══════════════════════════════
+   MAIN WRAPPER
+══════════════════════════════ */
+.main{
+  max-width:520px;
+  margin:0 auto;
+  padding:0 16px 80px;
+}
+
+/* ══════════════════════════════
+   SECTION HEADING
+══════════════════════════════ */
+.sec-head{
+  padding:38px 0 20px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:24px;
+}
+
+.sec-eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:.52rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--tunis-lt);margin-bottom:6px;
+  display:flex;align-items:center;gap:10px;
+}
+.sec-eyebrow::before{content:'';width:18px;height:1px;background:var(--tunis);flex-shrink:0;}
+
+.sec-title{
+  font-family:'Cinzel',serif;
+  font-size:1.55rem;font-weight:600;
+  color:var(--cream);line-height:1.2;
+  letter-spacing:.04em;
+}
+
+.sec-title em{font-style:italic;color:var(--gold-lt);font-family:'Raleway',sans-serif;font-size:1.6rem;}
+
+.sec-sub{
+  font-size:.68rem;color:var(--cream-dim);
+  margin-top:6px;line-height:1.6;
+}
+
+/* ══════════════════════════════
+   FORM CARD
+══════════════════════════════ */
+.form-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+
+/* top accent line */
+.form-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--olive),var(--tunis),var(--gold));
+  opacity:.6;
+}
+
+.form-body{padding:28px 22px 24px;}
+
+/* ── field group ── */
+.field-group{
+  display:flex;flex-direction:column;gap:14px;
+  margin-bottom:14px;
+}
+
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+.field{display:flex;flex-direction:column;gap:5px;}
+
+.field label{
+  font-family:'DM Mono',monospace;
+  font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream-dim);
+  display:flex;align-items:center;gap:6px;
+}
+
+.req{color:var(--tunis-lt);font-size:.6rem;}
+
+.field input,
+.field select,
+.field textarea{
+  background:var(--card2);
+  border:1px solid var(--border);
+  padding:11px 13px;
+  font-family:'Raleway',sans-serif;font-size:.82rem;
+  color:var(--cream);outline:none;width:100%;
+  transition:border-color .2s,background .2s;
+  -webkit-appearance:none;border-radius:0;
+  line-height:1.4;
+}
+
+.field input::placeholder,
+.field textarea::placeholder{color:var(--cream-off);}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:rgba(154,124,20,.45);
+  background:var(--panel);
+}
+
+.field select{cursor:pointer;}
+.field select option{background:var(--card2);color:var(--cream);}
+.field select optgroup{background:var(--panel);color:var(--gold-lt);font-weight:600;}
+
+.field textarea{resize:none;height:72px;}
+
+/* ── divider ── */
+.form-divider{
+  display:flex;align-items:center;gap:12px;
+  margin:18px 0;
+  font-family:'DM Mono',monospace;font-size:.5rem;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cream-off);
+}
+.form-divider::before,.form-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* ── date strip ── */
+.date-strip{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  gap:8px;align-items:end;margin-bottom:14px;
+}
+.date-arrow{
+  font-size:.9rem;color:var(--cream-dim);
+  text-align:center;padding-bottom:11px;
+}
+
+/* ── nights display ── */
+.nights-tag{
+  font-family:'DM Mono',monospace;
+  font-size:.56rem;letter-spacing:.12em;
+  color:var(--gold-lt);
+  background:rgba(154,124,20,.1);
+  border:1px solid rgba(154,124,20,.2);
+  padding:4px 10px;
+  display:none;
+  margin-top:-8px;margin-bottom:8px;
+  text-align:center;
+}
+
+/* ══════════════════════════════
+   SUBMIT BUTTON
+══════════════════════════════ */
+.submit-wa{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  background:#1a9948;
+  border:none;
+  padding:16px 24px;width:100%;cursor:pointer;
+  font-family:'Raleway',sans-serif;font-size:.85rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:#fff;
+  box-shadow:0 4px 18px rgba(26,153,72,.25);
+  transition:transform .15s,box-shadow .15s,background .15s;
+  margin-top:6px;
+}
+.submit-wa:hover{transform:translateY(-1px);box-shadow:0 7px 24px rgba(26,153,72,.35);background:#1db352;}
+.submit-wa:active{transform:translateY(0);}
+.wa-svg{width:20px;height:20px;fill:#fff;flex-shrink:0;}
+
+.form-note{
+  font-family:'DM Mono',monospace;font-size:.5rem;
+  color:var(--cream-off);text-align:center;
+  margin-top:10px;letter-spacing:.08em;line-height:1.6;
+}
+
+/* ══════════════════════════════
+   INFO STRIP BELOW FORM
+══════════════════════════════ */
+.info-strip{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--border);
+  margin-top:1px;
+}
+.info-cell{
+  background:var(--card2);
+  padding:14px 16px;
+  text-align:center;
+}
+.info-val{
+  font-family:'Cinzel',serif;
+  font-size:.9rem;font-weight:600;
+  color:var(--cream);line-height:1;
+}
+.info-key{
+  font-family:'DM Mono',monospace;font-size:.5rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--cream-dim);margin-top:4px;
+}
+
+/* ══════════════════════════════
+   WHY BOOK DIRECT
+══════════════════════════════ */
+.why-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--border);
+  margin-bottom:1px;
+}
+.why-card{
+  background:var(--card);
+  padding:20px 16px;
+  opacity:0;transform:translateY(10px);
+  animation:rise .4s ease forwards;
+}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+.why-card:nth-child(1){animation-delay:.06s}
+.why-card:nth-child(2){animation-delay:.12s}
+.why-card:nth-child(3){animation-delay:.18s}
+.why-card:nth-child(4){animation-delay:.24s}
+.why-icon{font-size:1.3rem;display:block;margin-bottom:9px;}
+.why-title{font-family:'Raleway',sans-serif;font-size:.78rem;font-weight:700;color:var(--cream);margin-bottom:4px;}
+.why-desc{font-size:.65rem;color:var(--cream-dim);line-height:1.65;}
+
+/* ══════════════════════════════
+   DORMS REFERENCE
+══════════════════════════════ */
+.dorm-ref{
+  display:flex;flex-direction:column;gap:1px;
+  background:var(--border);
+  margin-bottom:1px;
+}
+.dorm-row{
+  display:flex;align-items:center;
+  background:var(--card);
+  padding:13px 16px;gap:12px;
+}
+.dorm-bar{width:3px;align-self:stretch;flex-shrink:0;}
+.dorm-bar.ground{background:var(--olive-lt);}
+.dorm-bar.upper{background:var(--tunis-lt);}
+.dorm-name{
+  font-family:'Cinzel',serif;font-size:.88rem;font-weight:600;
+  color:var(--cream);letter-spacing:.04em;min-width:52px;
+}
+.dorm-type{font-size:.65rem;color:var(--cream-dim);flex:1;}
+.dorm-badge{
+  font-family:'DM Mono',monospace;font-size:.52rem;
+  padding:3px 9px;letter-spacing:.06em;text-transform:uppercase;
+  white-space:nowrap;flex-shrink:0;
+}
+.badge-m{background:rgba(78,94,38,.18);border:1px solid rgba(78,94,38,.35);color:var(--sage);}
+.badge-f{background:rgba(154,120,112,.12);border:1px solid rgba(154,120,112,.28);color:var(--blush);}
+.badge-u{background:rgba(142,72,40,.14);border:1px solid rgba(142,72,40,.3);color:var(--tunis-lt);}
+
+/* floor label */
+.floor-sep{
+  background:var(--panel);
+  padding:8px 16px;
+  display:flex;align-items:center;gap:10px;
+}
+.floor-sep-pill{
+  font-family:'DM Mono',monospace;font-size:.52rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:3px 10px;
+}
+.floor-sep-pill.g{background:var(--olive);color:#fff;}
+.floor-sep-pill.u{background:var(--tunis);color:#fff;}
+.floor-sep-line{flex:1;height:1px;background:var(--border);}
+.floor-sep-ct{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--cream-off);}
+
+/* ══════════════════════════════
+   FLOATING WA
+══════════════════════════════ */
+.float-wa{
+  position:fixed;bottom:18px;right:14px;z-index:500;
+  display:flex;align-items:center;gap:8px;
+  background:#1a9948;border:none;
+  padding:11px 18px 11px 13px;
+  box-shadow:0 4px 18px rgba(26,153,72,.4);
+  cursor:pointer;text-decoration:none;
+  transition:transform .15s,box-shadow .15s;
+  animation:floatUp .5s 1s ease both;
+}
+@keyframes floatUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.float-wa:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(26,153,72,.5);}
+.float-wa-txt{font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:700;color:#fff;letter-spacing:.08em;text-transform:uppercase;}
+
+/* ══════════════════════════════
+   INSTAGRAM
+══════════════════════════════ */
+.insta-block{
+  background:var(--card);
+  border:1px solid var(--border2);
+  margin-top:2px;
+  position:relative;overflow:hidden;
+}
+
+/* gradient shimmer top */
+.insta-block::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  opacity:.7;
+}
+
+.insta-inner{
+  padding:26px 22px;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:14px;
+}
+
+.insta-icon-wrap{
+  width:56px;height:56px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;
+  box-shadow:0 4px 16px rgba(220,39,67,.25);
+}
+
+.insta-label{
+  font-family:'DM Mono',monospace;font-size:.52rem;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cream-dim);margin-bottom:2px;
+}
+
+.insta-headline{
+  font-family:'Cinzel',serif;font-size:1.05rem;font-weight:600;
+  color:var(--cream);letter-spacing:.04em;line-height:1.3;
+}
+
+.insta-sub{
+  font-size:.72rem;color:var(--cream-dim);line-height:1.65;
+  max-width:300px;
+}
+
+.insta-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);
+  border:none;padding:12px 24px;
+  font-family:'Raleway',sans-serif;font-size:.78rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:#fff;
+  text-decoration:none;cursor:pointer;
+  box-shadow:0 4px 16px rgba(220,39,67,.25);
+  transition:transform .15s,box-shadow .15s;
+}
+.insta-btn:hover{transform:translateY(-2px);box-shadow:0 7px 22px rgba(220,39,67,.35);}
+
+.insta-handle{
+  font-family:'DM Mono',monospace;font-size:.58rem;
+  color:var(--cream-dim);letter-spacing:.1em;
+}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+.site-footer{
+  background:var(--ink);
+  border-top:1px solid var(--border);
+  padding:28px 20px 22px;
+  text-align:center;
+}
+.footer-name{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;color:var(--cream);letter-spacing:.08em;}
+.footer-amp{color:var(--gold-lt);}
+.footer-tag{font-family:'Raleway',sans-serif;font-size:.55rem;font-weight:500;letter-spacing:.48em;text-transform:uppercase;color:var(--blush);margin-top:3px;opacity:.7;}
+.footer-copy{font-family:'DM Mono',monospace;font-size:.46rem;color:var(--cream-off);margin-top:16px;letter-spacing:.1em;}
+</style>
+</head>
+<body>
+
+<!-- ══ BRAND HEADER ══ -->
+<header class="brand-header">
+  <div class="header-sup">Arugam Bay · Eastern Sri Lanka</div>
+  <div class="brand-name">KIP<span class="brand-amp">&amp;</span>KIN</div>
+  <div class="brand-tagline">Bunk &nbsp;·&nbsp; Bond</div>
+  <div class="ribbon">
+    <div class="ribbon-seg">Book Direct</div>
+    <div class="ribbon-seg">Zero Fees</div>
+    <div class="ribbon-seg">Best Price</div>
+  </div>
+  <div class="loc-tag"><div class="loc-dot"></div>300m from the Strip · Steps from Main Point surf</div>
+</header>
+
+<!-- ══ MAIN ══ -->
+<div class="main">
+
+  <!-- INSTAGRAM — top, before form -->
+  <div class="insta-block" style="margin-top:0;border-top:none;">
+    <div class="insta-inner">
+      <div class="insta-icon-wrap">📸</div>
+      <div>
+        <div class="insta-label">Before You Book</div>
+        <div class="insta-headline">Tour the Hostel on Instagram</div>
+      </div>
+      <div class="insta-sub">Browse our pod dorms, common spaces, breakfasts and the Arugam Bay atmosphere — so you know exactly where you're staying before you fill the form.</div>
+      <a class="insta-btn" onclick="location.href='https://www.instagram.com/kipnkin_hostel?igsh=NGI4OWJsY2QzeXNl'" style="cursor:pointer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        View Hostel on Instagram
+      </a>
+      <div class="insta-handle">@kipnkin_hostel</div>
+    </div>
+  </div>
+
+  <!-- BOOKING FORM -->
+  <div class="sec-head">
+    <div class="sec-eyebrow">Direct Booking</div>
+    <div class="sec-title">Reserve Your <em>Bunk</em></div>
+    <div class="sec-sub">Fill in your details and tap Send — we confirm on WhatsApp within minutes. No payment required now.</div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-body">
+
+      <!-- Guest Details -->
+      <div class="form-divider">Guest Information</div>
+      <div class="field-group">
+        <div class="field">
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" id="fullName" placeholder="As on passport">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Passport No. <span class="req">*</span></label>
+            <input type="text" id="passport" placeholder="e.g. N1234567">
+          </div>
+          <div class="field">
+            <label>Nationality <span class="req">*</span></label>
+            <select id="country">
+              <option value="">Select country…</option>
+              <option>Afghanistan</option><option>Albania</option><option>Algeria</option><option>Andorra</option><option>Angola</option><option>Antigua and Barbuda</option><option>Argentina</option><option>Armenia</option><option>Australia</option><option>Austria</option><option>Azerbaijan</option><option>Bahamas</option><option>Bahrain</option><option>Bangladesh</option><option>Barbados</option><option>Belarus</option><option>Belgium</option><option>Belize</option><option>Benin</option><option>Bhutan</option><option>Bolivia</option><option>Bosnia and Herzegovina</option><option>Botswana</option><option>Brazil</option><option>Brunei</option><option>Bulgaria</option><option>Burkina Faso</option><option>Burundi</option><option>Cabo Verde</option><option>Cambodia</option><option>Cameroon</option><option>Canada</option><option>Central African Republic</option><option>Chad</option><option>Chile</option><option>China</option><option>Colombia</option><option>Comoros</option><option>Congo</option><option>Costa Rica</option><option>Croatia</option><option>Cuba</option><option>Cyprus</option><option>Czech Republic</option><option>Denmark</option><option>Djibouti</option><option>Dominica</option><option>Dominican Republic</option><option>Ecuador</option><option>Egypt</option><option>El Salvador</option><option>Equatorial Guinea</option><option>Eritrea</option><option>Estonia</option><option>Eswatini</option><option>Ethiopia</option><option>Fiji</option><option>Finland</option><option>France</option><option>Gabon</option><option>Gambia</option><option>Georgia</option><option>Germany</option><option>Ghana</option><option>Greece</option><option>Grenada</option><option>Guatemala</option><option>Guinea</option><option>Guinea-Bissau</option><option>Guyana</option><option>Haiti</option><option>Honduras</option><option>Hungary</option><option>Iceland</option><option>India</option><option>Indonesia</option><option>Iran</option><option>Iraq</option><option>Ireland</option><option>Israel</option><option>Italy</option><option>Jamaica</option><option>Japan</option><option>Jordan</option><option>Kazakhstan</option><option>Kenya</option><option>Kiribati</option><option>Kuwait</option><option>Kyrgyzstan</option><option>Laos</option><option>Latvia</option><option>Lebanon</option><option>Lesotho</option><option>Liberia</option><option>Libya</option><option>Liechtenstein</option><option>Lithuania</option><option>Luxembourg</option><option>Madagascar</option><option>Malawi</option><option>Malaysia</option><option>Maldives</option><option>Mali</option><option>Malta</option><option>Marshall Islands</option><option>Mauritania</option><option>Mauritius</option><option>Mexico</option><option>Micronesia</option><option>Moldova</option><option>Monaco</option><option>Mongolia</option><option>Montenegro</option><option>Morocco</option><option>Mozambique</option><option>Myanmar</option><option>Namibia</option><option>Nauru</option><option>Nepal</option><option>Netherlands</option><option>New Zealand</option><option>Nicaragua</option><option>Niger</option><option>Nigeria</option><option>North Korea</option><option>North Macedonia</option><option>Norway</option><option>Oman</option><option>Pakistan</option><option>Palau</option><option>Palestine</option><option>Panama</option><option>Papua New Guinea</option><option>Paraguay</option><option>Peru</option><option>Philippines</option><option>Poland</option><option>Portugal</option><option>Qatar</option><option>Romania</option><option>Russia</option><option>Rwanda</option><option>Saint Kitts and Nevis</option><option>Saint Lucia</option><option>Saint Vincent and the Grenadines</option><option>Samoa</option><option>San Marino</option><option>Sao Tome and Principe</option><option>Saudi Arabia</option><option>Senegal</option><option>Serbia</option><option>Seychelles</option><option>Sierra Leone</option><option>Singapore</option><option>Slovakia</option><option>Slovenia</option><option>Solomon Islands</option><option>Somalia</option><option>South Africa</option><option>South Korea</option><option>South Sudan</option><option>Spain</option><option>Sri Lanka</option><option>Sudan</option><option>Suriname</option><option>Sweden</option><option>Switzerland</option><option>Syria</option><option>Taiwan</option><option>Tajikistan</option><option>Tanzania</option><option>Thailand</option><option>Timor-Leste</option><option>Togo</option><option>Tonga</option><option>Trinidad and Tobago</option><option>Tunisia</option><option>Turkey</option><option>Turkmenistan</option><option>Tuvalu</option><option>Uganda</option><option>Ukraine</option><option>United Arab Emirates</option><option>United Kingdom</option><option>United States</option><option>Uruguay</option><option>Uzbekistan</option><option>Vanuatu</option><option>Vatican City</option><option>Venezuela</option><option>Vietnam</option><option>Yemen</option><option>Zambia</option><option>Zimbabwe</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Contact Number <span class="req">*</span></label>
+            <input type="tel" id="phone" placeholder="+1 234 567 8900">
+          </div>
+          <div class="field">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" id="email" placeholder="you@email.com">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stay Details -->
+      <div class="form-divider">Stay Details</div>
+      <div class="field-group">
+        <div class="date-strip">
+          <div class="field">
+            <label>Check-in <span class="req">*</span></label>
+            <input type="date" id="checkIn" onchange="calcNights()">
+          </div>
+          <div class="date-arrow">→</div>
+          <div class="field">
+            <label>Check-out <span class="req">*</span></label>
+            <input type="date" id="checkOut" onchange="calcNights()">
+          </div>
+        </div>
+        <div class="nights-tag" id="nightsTag">— nights</div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>No. of Guests <span class="req">*</span></label>
+            <input type="number" id="guests" placeholder="1" min="1" max="36">
+          </div>
+          <div class="field">
+            <label>Dorm Room <span class="req">*</span></label>
+            <select id="dorm">
+              <option value="">Select dorm…</option>
+              <optgroup label="── Ground Floor · 4 Beds ──">
+                <option value="Thal — Mixed Pod Dorm · 4 Beds · Ground Floor">Thal · Mixed · 4 Beds</option>
+                <option value="Sippi — Female Pod Dorm · 4 Beds · Ground Floor">Sippi · Female Only · 4 Beds</option>
+                <option value="Maalu — Mixed Pod Dorm · 4 Beds · Ground Floor">Maalu · Mixed · 4 Beds</option>
+              </optgroup>
+              <optgroup label="── Upper Floor · 8 Beds ──">
+                <option value="Rala — Mixed Pod Dorm · 8 Beds · Upper Floor">Rala · Mixed · 8 Beds</option>
+                <option value="Koka — Mixed Pod Dorm · 8 Beds · Upper Floor">Koka · Mixed · 8 Beds</option>
+                <option value="Mora — Mixed Pod Dorm · 8 Beds · Upper Floor">Mora · Mixed · 8 Beds</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Special Requests</label>
+          <textarea id="notes" placeholder="Airport transfer, surf lesson, early check-in, smoothie bowl pre-order…"></textarea>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="button" class="submit-wa" onclick="sendWA()">
+        <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Send Booking Request via WhatsApp
+      </button>
+      <div class="form-note">
+        Tapping above opens WhatsApp with all your details pre-filled<br>
+        No payment required · We confirm your bed within minutes
+      </div>
+    </div>
+
+    <!-- info strip -->
+    <div class="info-strip">
+      <div class="info-cell">
+        <div class="info-val">36</div>
+        <div class="info-key">Total Beds</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-val">6</div>
+        <div class="info-key">Pod Dorms</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-val">24/7</div>
+        <div class="info-key">Reception</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-val">Free</div>
+        <div class="info-key">Breakfast</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY BOOK DIRECT -->
+  <div class="sec-head" style="padding-top:44px">
+    <div class="sec-eyebrow">Why Book Direct</div>
+    <div class="sec-title">The <em>Advantage</em></div>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">💰</span>
+      <div class="why-title">Zero Booking Fees</div>
+      <div class="why-desc">No OTA commission. What you pay is exactly what we charge — nothing more.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">⚡</span>
+      <div class="why-title">Instant Confirm</div>
+      <div class="why-desc">WhatsApp reply within minutes. Your bunk locked in fast.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🏄</span>
+      <div class="why-title">Local Expertise</div>
+      <div class="why-desc">Best surf times, hidden spots and tuk-tuk tips — straight from us.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🤝</span>
+      <div class="why-title">Personal Service</div>
+      <div class="why-desc">Changes handled personally. No bots, no forms, no waiting.</div>
+    </div>
+  </div>
+
+  <!-- DORMS REFERENCE -->
+  <div class="sec-head" style="padding-top:44px">
+    <div class="sec-eyebrow">Our Pod-Based Dormitories</div>
+    <div class="sec-title">Six <em>Rooms</em></div>
+    <div class="sec-sub">All dorms feature pod-style beds, personal lockers, 24/7 AC and Starlink internet.</div>
+  </div>
+
+  <div class="dorm-ref">
+    <!-- Ground floor -->
+    <div class="floor-sep">
+      <span class="floor-sep-pill g">Ground Floor</span>
+      <span class="floor-sep-line"></span>
+      <span class="floor-sep-ct">3 rooms · 12 beds</span>
+    </div>
+    <div class="dorm-row">
+      <div class="dorm-bar ground"></div>
+      <div class="dorm-name">Thal</div>
+      <div class="dorm-type">Mixed Pod Dorm · 4 Beds · Ground Floor</div>
+      <span class="dorm-badge badge-m">Mixed</span>
+    </div>
+    <div class="dorm-row">
+      <div class="dorm-bar ground" style="background:var(--blush)"></div>
+      <div class="dorm-name">Sippi</div>
+      <div class="dorm-type">Female Pod Dorm · 4 Beds · Ground Floor</div>
+      <span class="dorm-badge badge-f">Female</span>
+    </div>
+    <div class="dorm-row">
+      <div class="dorm-bar ground"></div>
+      <div class="dorm-name">Maalu</div>
+      <div class="dorm-type">Mixed Pod Dorm · 4 Beds · Ground Floor</div>
+      <span class="dorm-badge badge-m">Mixed</span>
+    </div>
+    <!-- Upper floor -->
+    <div class="floor-sep">
+      <span class="floor-sep-pill u">Upper Floor</span>
+      <span class="floor-sep-line"></span>
+      <span class="floor-sep-ct">3 rooms · 24 beds</span>
+    </div>
+    <div class="dorm-row">
+      <div class="dorm-bar upper"></div>
+      <div class="dorm-name">Rala</div>
+      <div class="dorm-type">Mixed Pod Dorm · 8 Beds · Upper Floor</div>
+      <span class="dorm-badge badge-u">Mixed</span>
+    </div>
+    <div class="dorm-row">
+      <div class="dorm-bar upper"></div>
+      <div class="dorm-name">Koka</div>
+      <div class="dorm-type">Mixed Pod Dorm · 8 Beds · Upper Floor</div>
+      <span class="dorm-badge badge-u">Mixed</span>
+    </div>
+    <div class="dorm-row">
+      <div class="dorm-bar upper"></div>
+      <div class="dorm-name">Mora</div>
+      <div class="dorm-type">Mixed Pod Dorm · 8 Beds · Upper Floor</div>
+      <span class="dorm-badge badge-u">Mixed</span>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-name">KIP<span class="footer-amp">&amp;</span>KIN</div>
+  <div class="footer-tag">Bunk · Bond</div>
+  <div class="footer-copy">ARUGAM BAY · EASTERN SRI LANKA · BOOK DIRECT · ZERO BOOKING FEES · +94 76 987 2222</div>
+</footer>
+
+<!-- FLOATING WA -->
+<a class="float-wa" onclick="location.href='https://wa.me/94769872222?text=Hi%20Kip%26Kin!%20I%27d%20like%20to%20make%20a%20booking%20%F0%9F%8C%8A'" style="cursor:pointer">
+  <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="float-wa-txt">Book via WhatsApp</span>
+</a>
+
+<script>
+// ── Night calculator ──
+function calcNights(){
+  const ci=document.getElementById('checkIn').value;
+  const co=document.getElementById('checkOut').value;
+  const tag=document.getElementById('nightsTag');
+  if(ci&&co){
+    const d=(new Date(co)-new Date(ci))/(1000*60*60*24);
+    if(d>0){
+      tag.textContent=d+' night'+(d>1?'s':'');
+      tag.style.display='block';
+      return d;
+    }
+  }
+  tag.style.display='none';
+  return 0;
+}
+
+// ── Date defaults ──
+const today=new Date().toISOString().split('T')[0];
+document.getElementById('checkIn').min=today;
+document.getElementById('checkOut').min=today;
+
+document.getElementById('checkIn').addEventListener('change',function(){
+  const next=new Date(this.value);
+  next.setDate(next.getDate()+1);
+  const nd=next.toISOString().split('T')[0];
+  document.getElementById('checkOut').min=nd;
+  if(!document.getElementById('checkOut').value||document.getElementById('checkOut').value<=this.value){
+    document.getElementById('checkOut').value=nd;
+  }
+  calcNights();
+});
+
+// ── Form validation & WhatsApp send ──
+function sendWA(){
+  const name    = document.getElementById('fullName').value.trim();
+  const passport= document.getElementById('passport').value.trim();
+  const country = document.getElementById('country').value;
+  const phone   = document.getElementById('phone').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const cin     = document.getElementById('checkIn').value;
+  const cout    = document.getElementById('checkOut').value;
+  const guests  = document.getElementById('guests').value.trim();
+  const dorm    = document.getElementById('dorm').value;
+  const notes   = document.getElementById('notes').value.trim();
+
+  // Validation
+  const errors=[];
+  if(!name)     errors.push('Full Name');
+  if(!passport) errors.push('Passport Number');
+  if(!country)  errors.push('Nationality');
+  if(!phone)    errors.push('Contact Number');
+  if(!email)    errors.push('Email Address');
+  if(!cin)      errors.push('Check-in Date');
+  if(!cout)     errors.push('Check-out Date');
+  if(!guests)   errors.push('Number of Guests');
+  if(!dorm)     errors.push('Dorm Room');
+
+  if(errors.length){
+    alert('Please complete the following fields:\n\n• '+errors.join('\n• '));
+    return;
+  }
+
+  const fmt = function(d){
+    return new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  };
+  const nights = calcNights();
+
+  var msg = '🌊 *Kip&Kin Booking Request*\n';
+  msg += '━━━━━━━━━━━━━━━━━━━━\n\n';
+  msg += '*Guest Details*\n';
+  msg += '👤 Name: ' + name + '\n';
+  msg += '🛂 Passport: ' + passport + '\n';
+  msg += '🌍 Nationality: ' + country + '\n';
+  msg += '📞 Contact: ' + phone + '\n';
+  msg += '📧 Email: ' + email + '\n\n';
+  msg += '*Stay Details*\n';
+  msg += '📅 Check-in: ' + fmt(cin) + '\n';
+  msg += '📅 Check-out: ' + fmt(cout) + '\n';
+  if(nights > 0) msg += '🌙 Nights: ' + nights + '\n';
+  msg += '👥 Guests: ' + guests + '\n';
+  msg += '🛏️ Dorm: ' + dorm + '\n';
+  if(notes) msg += '\n📝 Requests: ' + notes + '\n';
+  msg += '\n_Booking direct — zero fees, best price_ 🤙';
+
+  var url = 'https://wa.me/94769872222?text=' + encodeURIComponent(msg);
+  location.href = url;
+}
+</script>
+</body>
+</html>
